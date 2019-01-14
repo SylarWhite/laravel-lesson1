@@ -1,10 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+$body-color: #bf6320;
+
 body {
   font-size: 14px;
   font-weight: normal;
+  color: $body-color
 }
 
 nav.navbar.navbar-expand-lg {
   margin-bottom: 20px;
 }
+
