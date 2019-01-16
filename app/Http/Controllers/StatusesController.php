@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -92,8 +93,11 @@ class StatusesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Status $status)
     {
-        //
+        $this->authorize('destroy',$status);
+        $status->delete();
+        session()->flash('success','微博已删除');
+        return redirect()->back();
     }
 }
